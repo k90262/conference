@@ -9,6 +9,12 @@ import java.util.List;
 public class SpeakerServiceImpl implements SpeakerService {
 
     private SpeakerRepository repository;
+
+    public SpeakerServiceImpl(SpeakerRepository speakerRpository)
+    {
+        this.repository = speakerRpository;
+    }
+
     @Override
     public List<Speaker> findAll() {
         return repository.findAll();
