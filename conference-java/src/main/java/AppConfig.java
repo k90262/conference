@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Scope;
 public class AppConfig {
     @Bean(name = "speakerService")
     @Scope(value = BeanDefinition.SCOPE_SINGLETON) // default bean scope
+    //@Scope(value = BeanDefinition.SCOPE_PROTOTYPE) // opposite of singleton: change per request
     public SpeakerService getSpeakerService() {
         SpeakerServiceImpl service =  new SpeakerServiceImpl(getSpeakerRepository());
         //service.setRepository(getSpeakerRepository());
