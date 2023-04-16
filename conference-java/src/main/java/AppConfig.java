@@ -13,7 +13,8 @@ public class AppConfig {
     @Scope(value = BeanDefinition.SCOPE_SINGLETON) // default bean scope
     //@Scope(value = BeanDefinition.SCOPE_PROTOTYPE) // opposite of singleton: change per request
     public SpeakerService getSpeakerService() {
-        SpeakerServiceImpl service =  new SpeakerServiceImpl(getSpeakerRepository());
+        //SpeakerServiceImpl service =  new SpeakerServiceImpl(getSpeakerRepository());
+        SpeakerServiceImpl service =  new SpeakerServiceImpl();
         //service.setRepository(getSpeakerRepository());
         return service;
     }
