@@ -1,10 +1,12 @@
 package com.pluralsight.repository;
 
 import com.pluralsight.model.Speaker;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service("speakerRepository")
 public class HibernateSpeakerRepositoryImpl implements SpeakerRepository {
 
     @Override
