@@ -4,6 +4,7 @@ import com.pluralsight.model.Speaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.Calendar;
 import java.util.List;
 
 @Service("speakerRepository")
+@Profile("dev")
 public class HibernateSpeakerRepositoryImpl implements SpeakerRepository {
 
     @Autowired
