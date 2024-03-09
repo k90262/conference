@@ -1,7 +1,6 @@
 package com.pluralsight.service;
 
 import com.pluralsight.model.Speaker;
-import com.pluralsight.repository.HibernateSpeakerRepositoryImpl;
 import com.pluralsight.repository.SpeakerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
@@ -12,27 +11,27 @@ import java.util.List;
 
 // stereotype annotation -> class level
 @Service("speakerService")
-@Profile("!dev")
-public class SpeakerServiceImpl implements SpeakerService {
+@Profile("dev")
+public class SpeakerServiceImplDev implements SpeakerService {
 
     private SpeakerRepository repository;
 
-    public SpeakerServiceImpl()
+    public SpeakerServiceImplDev()
     {
-        System.out.println("SpeakerServiceImpl no args constructor");
+        System.out.println("[dev] SpeakerServiceImpl no args constructor");
     }
 
     // constructor injection
     @Autowired
-    public SpeakerServiceImpl(SpeakerRepository speakerRpository)
+    public SpeakerServiceImplDev(SpeakerRepository speakerRpository)
     {
-        System.out.println("SpeakerServiceImpl repository constructor");
+        System.out.println("[dev] SpeakerServiceImpl repository constructor");
         this.repository = speakerRpository;
     }
 
     @PostConstruct
     private void initialize() {
-        System.out.println("We're called after the constructors");
+        System.out.println("[dev] We're called after the constructors");
     }
 
     @Override
@@ -43,7 +42,7 @@ public class SpeakerServiceImpl implements SpeakerService {
     // setter injection
     //@Autowired
     public void setRepository(SpeakerRepository repository) {
-        System.out.println("SpeakerServiceImpl setter");
+        System.out.println("[dev] SpeakerServiceImpl setter");
         this.repository = repository;
     }
 }
